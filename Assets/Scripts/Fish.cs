@@ -13,7 +13,7 @@ public class Fish : MonoBehaviour
     public int gamePrice;
     public float gameWeight;
     public float gameLength;
-    public float gameDificult;
+    //public float gameDificult;
 
     [Header("Visuals")]
     public SpriteRenderer sr;
@@ -29,7 +29,7 @@ public class Fish : MonoBehaviour
         gamePrice = assignedFish.price;
         gameWeight= assignedFish.weight;
         gameLength  = assignedFish.length;
-        gameDificult= assignedFish.dificult;
+        //gameDificult= assignedFish.dificult;
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         sr.sprite = assignedFish.spriteFish;
@@ -49,9 +49,9 @@ public class Fish : MonoBehaviour
             Vector3 a = transform.position;
             Vector3 b = new Vector3 (Random.Range(-coordenadasMove.x, coordenadasMove.x), Random.Range(-coordenadasMove.y, coordenadasMove.y));
 
-            for (float i = 0; i < gameDificult; i += Time.deltaTime)
+            for (float i = 0; i < assignedFish.dificult; i += Time.deltaTime)
             {
-                transform.position = Vector3.Lerp(a,b,i/gameDificult);
+                transform.position = Vector3.Lerp(a,b,i/ assignedFish.dificult);
                 yield return null;
             }
             
